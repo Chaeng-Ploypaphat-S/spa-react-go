@@ -36,7 +36,7 @@ export default class AppClass extends Component {
             <hr />
             {this.state.isTrue
             ? <p>Is True</p>
-            : <p className='p-orange'>Is False</p>
+            : <p className='p-orange'> Is False</p>
             }
             <a href="#!" className='btn btn-outline-secondary' onClick={this.toggleTrue}>Toggle IsTrue</a>
             </>
