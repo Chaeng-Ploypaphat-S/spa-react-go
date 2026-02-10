@@ -17,7 +17,7 @@ const Login = () => {
         event.preventDefault();
         console.log("email/pass: ", email, password)
 
-        if (email === "valid@test.com") {
+        if (email === "dev@test.com") {
             setJwtToken("abc");
             setAlertClassName("d-none");
             setAlertMessage("");
