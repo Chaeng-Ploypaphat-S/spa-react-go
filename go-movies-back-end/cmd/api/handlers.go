@@ -50,10 +50,12 @@ func (app *appliation) AllMovies(w http.ResponseWriter, r *http.Request) {
 
 	movies = append(movies, highlander)
 
+	rd2, _ := time.Parse("2006-01-02", "1981-06-12")
+
 	raiders_of_the_lost_ark := models.Movie{
-		ID:          1,
+		ID:          2,
 		Title:       "Raiders of the Lost Ark",
-		ReleaseDate: rd,
+		ReleaseDate: rd2,
 		MPAARating:  "PG-13",
 		RunTime:     115,
 		Description: "Very family-friendly movie",
@@ -62,4 +64,13 @@ func (app *appliation) AllMovies(w http.ResponseWriter, r *http.Request) {
 	}
 
 	movies = append(movies, raiders_of_the_lost_ark)
+
+	out, err := json.Marshal(movies)
+	if err != nil {
+		fmt.Println(err)
+	}
+
+	w.Header().Set("Content-Type", "application/json")
+	w.WriteHeader(http.StatusOK)
+	w.Write(out)
 }
