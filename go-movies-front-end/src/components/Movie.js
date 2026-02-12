@@ -7,24 +7,17 @@ const Movie = () => {
     let { id } = useParams();
 
     useEffect(() => {
-        const headers = new Headers()
-        headers.append("Content-Type", "application/json")
-
-        const requestOptions = {
-            method: "GET",
-            headers: headers
+        let myMovie = {
+                id: 1,
+                title: "Highlander",
+                release_date: "1986-03-07",
+                runtime: 116,
+                mpaa_rating: "R",
+                description: "Some long description",
         }
+        setMovie(myMovie)
 
-        fetch(`http://localhost:8080/movies`, requestOptions)
-        .then((response) => response.json())
-        .then((data) => {
-            setMovie(myMovie)    
-        })
-        .catch(err =>{
-            console.log(err)
-        })
-
-    }, [])
+    }, [id])
 
     return (
         <div>
