@@ -11,7 +11,6 @@ import (
 	_ "github.com/jackc/pgx/v4/stdlib"
 )
 
-// return a connection pool
 func openDB(dsn string) (*sql.DB, error) {
 	db, err := sql.Open("pgx", dsn)
 	if err != nil {
